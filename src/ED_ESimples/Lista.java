@@ -16,16 +16,28 @@ import java.io.OutputStreamWriter;
 public class Lista {
     
     private Nodo cabeza = null;
+    private int size = -1;
+
+    public void setCabeza(Nodo cabeza) {
+        this.cabeza = cabeza;
+        if (cabeza == null){
+            this.size = -1;
+        }
+    }        
+    
+    public int getSize() {
+        return this.size;
+    }       
     
     public boolean vacia(){
-        return this.cabeza == null; 
-        
+        return this.cabeza == null;         
     }
     
     public void añadirInicio(Object o){
         Nodo nuevoNodo = new Nodo(o);
         nuevoNodo.setSiguiente(this.cabeza);
         this.cabeza = nuevoNodo;
+        this.size++;
     }
     
     public void añadirFinal(Object o){
@@ -40,6 +52,7 @@ public class Lista {
             }
             temp.setSiguiente(nuevoNodo);
         }
+        this.size++;
     }
     
     public void añadirPosicion(Object o, int posicion){
@@ -49,7 +62,8 @@ public class Lista {
             temp = temp.getSiguiente();
         }
         nuevoNodo.setSiguiente(temp.getSiguiente()); 
-        temp.setSiguiente(nuevoNodo);           
+        temp.setSiguiente(nuevoNodo); 
+        this.size++;
     }
        
     public void eliminarInicio(){
@@ -57,6 +71,7 @@ public class Lista {
         this.cabeza = this.cabeza.getSiguiente();
         temp = null;
         System.gc();
+        this.size--;
     }
     
     public void eliminarFinal(){
@@ -68,6 +83,7 @@ public class Lista {
         }        
         pre.setSiguiente(null);
         System.gc();
+        this.size--;
     }
     
     public void eliminarPosicion(int posicion){
@@ -80,6 +96,15 @@ public class Lista {
         temp.setSiguiente(temp.getSiguiente().getSiguiente()); 
         eliminado = null;
         System.gc();
+        this.size--;
+    }
+    
+    public Nodo getNodo(int pos){
+        Nodo temp = this.cabeza;
+        for (int i = 1; i <= pos;i++){
+            temp = temp.getSiguiente();
+        }
+        return temp;
     }
     
     public void inversa(){
