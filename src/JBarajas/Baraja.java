@@ -95,36 +95,36 @@ public class Baraja {
             this.cartas.añadirInicio(impares.getNodo(i).clon());
         }        
     }
-    
-    public void moverNDerecha(int n){
-        Lista templ = new Lista();
-        Nodo tempn = this.cartas.getNodo(0);
-        for (int i = 0; i < this.cartas.getSize() - n+1; i++) {
-            tempn = tempn.getSiguiente();
-        }
-        while (tempn != null) {            
-            templ.añadirInicio(tempn.clon());
-            tempn = tempn.getSiguiente();
-        }
-        this.cartas.getNodo(this.cartas.getSize() - (n+1)).setSiguiente(null);
-        templ.getNodo(templ.getSize()).setSiguiente(this.cartas.getNodo(0));
-        this.cartas.setCabeza(templ.getNodo(0));
-    }
-    
-    public void moverNzquierda(int n){
-        Lista templ = new Lista();
-        Nodo tempn = this.cartas.getNodo(0);
-        for (int i = 0; i < n ; i++) {
-            tempn = tempn.getSiguiente();            
-        }
-        while (tempn != null) {            
-            templ.añadirInicio(tempn.clon());
-            tempn = tempn.getSiguiente();
-        }
-        this.cartas.getNodo(this.cartas.getSize() - (n)).setSiguiente(null);
-        templ.getNodo(templ.getSize()).setSiguiente(this.cartas.getNodo(0));
-        this.cartas.setCabeza(templ.getNodo(0));
-    }
+//    esta funciona mal 
+//    public void moverNDerecha(int n){
+//        Lista templ = new Lista();
+//        Nodo tempn = this.cartas.getNodo(0);
+//        for (int i = 0; i < this.cartas.getSize() - n+1; i++) {
+//            tempn = tempn.getSiguiente();
+//        }
+//        while (tempn != null) {            
+//            templ.añadirInicio(tempn.clon());
+//            tempn = tempn.getSiguiente();
+//        }
+//        this.cartas.getNodo(this.cartas.getSize() - (n+1)).setSiguiente(null);
+//        templ.getNodo(templ.getSize()).setSiguiente(this.cartas.getNodo(0));
+//        this.cartas.setCabeza(templ.getNodo(0));
+//    }
+//      esta no funciona     
+//    public void moverNzquierda(int n){
+//        Lista templ = new Lista();
+//        Nodo tempn = this.cartas.getNodo(0);
+//        for (int i = 0; i < n ; i++) {
+//            tempn = tempn.getSiguiente();            
+//        }
+//        while (tempn != null) {            
+//            templ.añadirInicio(tempn.clon());
+//            tempn = tempn.getSiguiente();
+//        }
+//        this.cartas.getNodo(this.cartas.getSize() - (n)).setSiguiente(null);
+//        templ.getNodo(templ.getSize()).setSiguiente(this.cartas.getNodo(0));
+//        this.cartas.setCabeza(templ.getNodo(0));
+//    }
     
     public static void main(String[] args) {
         Baraja b = new Baraja("corazones", "diamantes", "picas", "treboles");
