@@ -29,7 +29,14 @@ public class Baraja {
             this.cartas.añadirInicio(new Carta(pinta4, i));
         }
     }
-    
+    public Baraja(){
+        this.cartas.añadirInicio(5);
+        this.cartas.añadirInicio(4);
+        this.cartas.añadirInicio(3);
+        this.cartas.añadirInicio(2);
+        this.cartas.añadirInicio(1);
+        this.cartas.añadirInicio(0);
+    }
     public void revolver2(){
         Lista templ = new Lista();
         Nodo temp = this.cartas.getNodo(this.cartas.getSize()/2 + 1);        
@@ -89,10 +96,40 @@ public class Baraja {
         }        
     }
     
+    public void moverNDerecha(int n){
+        Lista templ = new Lista();
+        Nodo tempn = this.cartas.getNodo(0);
+        for (int i = 0; i < this.cartas.getSize() - n+1; i++) {
+            tempn = tempn.getSiguiente();
+        }
+        while (tempn != null) {            
+            templ.añadirInicio(tempn.clon());
+            tempn = tempn.getSiguiente();
+        }
+        this.cartas.getNodo(this.cartas.getSize() - (n+1)).setSiguiente(null);
+        templ.getNodo(templ.getSize()).setSiguiente(this.cartas.getNodo(0));
+        this.cartas.setCabeza(templ.getNodo(0));
+    }
+    
+    public void moverNzquierda(int n){
+        Lista templ = new Lista();
+        Nodo tempn = this.cartas.getNodo(0);
+        for (int i = 0; i < n ; i++) {
+            tempn = tempn.getSiguiente();            
+        }
+        while (tempn != null) {            
+            templ.añadirInicio(tempn.clon());
+            tempn = tempn.getSiguiente();
+        }
+        this.cartas.getNodo(this.cartas.getSize() - (n)).setSiguiente(null);
+        templ.getNodo(templ.getSize()).setSiguiente(this.cartas.getNodo(0));
+        this.cartas.setCabeza(templ.getNodo(0));
+    }
+    
     public static void main(String[] args) {
         Baraja b = new Baraja("corazones", "diamantes", "picas", "treboles");
         b.cartas.imprimir();
-        System.out.println("******************************************"); 
+        System.out.println("******************************************");        
         b.intercalar();
         b.intercalar2();
         b.revolver2();
@@ -100,6 +137,10 @@ public class Baraja {
         b.revolver2();
         b.intercalar();
         b.intercalar2();
+//        b.moverNDerecha(0);
+//        b.moverNDerecha(18);       
+        b.intercalar2();
+//        b.moverNzquierda(1);
         b.cartas.imprimir();
         System.out.println(b.cartas.getSize());
         
