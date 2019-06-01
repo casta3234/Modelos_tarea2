@@ -130,8 +130,8 @@ public class SimLib {
     }
     public static float poisson(float mean, int istrm){
         float u;
-        u = rand(istrm);
-        return  mean* (float) Math.exp(- (((u)*(-1))/mean));
+        u = rand(istrm);        
+        return  mean* (float) Math.exp(- (u/mean));
     }
     public static float expon(float rmean, int istrm) {
         float u;
