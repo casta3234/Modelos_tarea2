@@ -8,7 +8,8 @@ import simlib.collection.*;
 import simlib.elements.*;
 import simlib.io.*;
 import static simlib.SimLib.*;
-;
+
+
 
 public class Ejercicio_2_5{
 
@@ -53,7 +54,7 @@ public class Ejercicio_2_5{
 //        System.out.println("   Max Time Unloaded:               " + MAX_TIME_UNLOADED + "    ");
 //        System.out.println("   Length simulation:               " + LENGTH_SIMULATION + "   ");
 //        System.out.println("------------------------------------------------");
-
+       
         writer.write("                 Pool System          " + "\n");
         writer.write("------------------------------------------------" + "\n");
         writer.write("                   DATA INPUT           " + "\n");
@@ -66,7 +67,7 @@ public class Ejercicio_2_5{
         initSimlib();
 
         ///Primer barco
-        eventSchedule(expon(PERSON_ARRIVAL, STREAM_ARRIVE), EVENT_ARRIVAL);
+        eventSchedule(poisson(PERSON_ARRIVAL, STREAM_ARRIVE), EVENT_ARRIVAL);
         // Fin simulacion
         eventSchedule(LENGTH_SIMULATION, EVENT_END_SIMULATION);
 
@@ -94,8 +95,9 @@ public class Ejercicio_2_5{
     }
 
     static void arrive() {
-        eventSchedule(simTime + expon(PERSON_ARRIVAL, STREAM_ARRIVE),
+        eventSchedule(simTime + poisson(PERSON_ARRIVAL, STREAM_ARRIVE),
                 EVENT_ARRIVAL);
+        
         number_of_person_arrive+=1;
         if(pool.getused()==3){
             aux = true;
@@ -109,19 +111,16 @@ public class Ejercicio_2_5{
             pool.enter();
             number_of_person_enter_the_pool+=1;
             eventSchedule(simTime + expon(TIME_swimming, STREAM_DEPARTURE), EVENT_DEPARTURE);
-            System.out.println(pool.getused());
+       
             if(pool.getused()==3){
                 time_of_3_person_swimming += simTime;
-                System.out.println("arival");
-                System.out.println(time_of_3_person_swimming);
+                
             }
             if(aux==true){
                 time_of_not_3_person_swimming+=simTime;
-                System.out.println("aux");
-                System.out.println(time_of_not_3_person_swimming);
             }
         }
-        
+        System.out.println(pool.getused());
         
         
  
@@ -131,13 +130,11 @@ public class Ejercicio_2_5{
         if(pool.getused()==3){
                 time_of_not_3_person_swimming += simTime;
                 
-                System.out.println(time_of_not_3_person_swimming);
             }
         pool.leave();
         if(pool.getused()==3){
                 time_of_3_person_swimming += simTime;
                 
-                System.out.println(time_of_3_person_swimming);
             }
         System.out.println(pool.getused());
     }
@@ -146,7 +143,7 @@ public class Ejercicio_2_5{
         average_of_3_person_swimming = ((time_of_not_3_person_swimming - time_of_3_person_swimming)/simTime)*100;
         swimmers_average= swimmers_average/simTime;
         percentage_of_person_entering_the_pool = (number_of_person_enter_the_pool/number_of_person_arrive)*100;
-        System.out.println(average_of_3_person_swimming);
+        
         writer.write("                   DATA OUTPUT           " + "\n");
         writer.write("------------------------------------------------" + "\n");
         writer.write("   average_of_3_person_swimming :                 " + average_of_3_person_swimming+ "%"  + "\n" + "\n");
