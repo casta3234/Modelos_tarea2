@@ -120,7 +120,6 @@ public class Ejercicio_2_5{
                 time_of_not_3_person_swimming+=simTime;
             }
         }
-        System.out.println(pool.getused());
         
         
  
@@ -136,7 +135,7 @@ public class Ejercicio_2_5{
                 time_of_3_person_swimming += simTime;
                 
             }
-        System.out.println(pool.getused());
+        
     }
     
     static void report() throws IOException{
