@@ -4,14 +4,14 @@
 ------------------------------------------------
                    DATA INPUT           
 ------------------------------------------------
-   Person Arrival:                    1.6667   
+   Person Arrival:                    10.0   
    Time Swimming:               30.0    
    Pool Capacity:               6.0    
    Length simulation:               480.0   
 ------------------------------------------------
                    DATA OUTPUT           
 ------------------------------------------------
-   average_of_3_person_swimming :                 0.23091619%
+   average_of_3_person_swimming :                 28.67859%
 
-   swimmers_average:                   5.8250976
-   percentage_of_person_entering_the_pool:                   22.395832%
+   swimmers_average:                   3.3936398
+   percentage_of_person_entering_the_pool:                   100.0%

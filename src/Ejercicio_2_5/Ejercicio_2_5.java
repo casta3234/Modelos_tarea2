@@ -1,4 +1,4 @@
-package Ejercicios;
+package Ejercicio_2_5;
 
 
 
@@ -120,6 +120,7 @@ public class Ejercicio_2_5{
                 time_of_not_3_person_swimming+=simTime;
             }
         }
+        
         
         
  
