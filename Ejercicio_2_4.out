@@ -1,2 +1,24 @@
 
 
+                 Elevator System          
+------------------------------------------------
+                   DATA INPUT           
+------------------------------------------------
+   ELEVATOR_CAPACYTI:                    400.0   
+   WEIGHT_MATERIAL_A:               200.0    
+   WEIGHT_MATERIAL_B:               100.0    
+   WEIGHT_MATERIAL_C:               50.0    
+   MATERIAL_A_ARRIVAL_1:            5.0    
+   MATERIAL_A_ARRIVAL_2:            2.0    
+   MATERIAL_B_ARRIVAL:              6.0    
+   MATERIAL_C_ARRIVAL_1:            0.33    
+   MATERIAL_C_ARRIVAL_2:            0.67    
+   DELIVERY_OF_THE_ELEVATOR:        4.0    
+   LENGTH_SIMULATION:               480.0   
+------------------------------------------------
+                   DATA OUTPUT           
+------------------------------------------------
+   average_transit_time_of_material_A:                 69.88499
+
+   average_wait_time_of_material_B:                    77.9979
+   c_material_that_makes_the_trip_in_1_hour:           17.0

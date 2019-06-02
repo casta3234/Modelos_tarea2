@@ -45,16 +45,7 @@ public class Ejercicio_2_5{
         POOL_CAPACITY = reader.readFloat();
         LENGTH_SIMULATION = reader.readFloat();
         pool = new Store("pool", (long) POOL_CAPACITY);
-//        System.out.println("                 HARBOR SYSTEM          ");
-//        System.out.println("------------------------------------------------");
-//        System.out.println("                   DATA INPUT           ");
-//        System.out.println("------------------------------------------------");
-//        System.out.println("   Mean Arrival:                    " + MEAN_ARRIVAL + "   ");
-//        System.out.println("   Min Time Unloaded:               " + MIN_TIME_UNLOADED + "    ");
-//        System.out.println("   Max Time Unloaded:               " + MAX_TIME_UNLOADED + "    ");
-//        System.out.println("   Length simulation:               " + LENGTH_SIMULATION + "   ");
-//        System.out.println("------------------------------------------------");
-       
+    
         writer.write("                 Pool System          " + "\n");
         writer.write("------------------------------------------------" + "\n");
         writer.write("                   DATA INPUT           " + "\n");
@@ -66,7 +57,7 @@ public class Ejercicio_2_5{
         writer.write("------------------------------------------------" + "\n");
         initSimlib();
 
-        ///Primer barco
+
         eventSchedule(poisson(PERSON_ARRIVAL, STREAM_ARRIVE), EVENT_ARRIVAL);
         // Fin simulacion
         eventSchedule(LENGTH_SIMULATION, EVENT_END_SIMULATION);
@@ -140,13 +131,13 @@ public class Ejercicio_2_5{
     }
     
     static void report() throws IOException{
-        average_of_3_person_swimming = ((time_of_not_3_person_swimming - time_of_3_person_swimming)/simTime)*100;
+        average_of_3_person_swimming = ((time_of_not_3_person_swimming - time_of_3_person_swimming)/simTime);
         swimmers_average= swimmers_average/simTime;
         percentage_of_person_entering_the_pool = (number_of_person_enter_the_pool/number_of_person_arrive)*100;
         
         writer.write("                   DATA OUTPUT           " + "\n");
         writer.write("------------------------------------------------" + "\n");
-        writer.write("   average_of_3_person_swimming :                 " + average_of_3_person_swimming+ "%"  + "\n" + "\n");
+        writer.write("   average_of_3_person_swimming :                 " + average_of_3_person_swimming  + "\n" + "\n");
         writer.write("   swimmers_average:                   " + swimmers_average + "\n");
         writer.write("   percentage_of_person_entering_the_pool:                   " + percentage_of_person_entering_the_pool + "%"+ "\n");
     }
