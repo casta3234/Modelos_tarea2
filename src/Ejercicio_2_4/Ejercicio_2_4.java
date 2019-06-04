@@ -142,8 +142,7 @@ public class Ejercicio_2_4{
     }
     
     static void arrive_C(){
-        //eventSchedule(MATERIAL_C_ARRIVAL_1+MATERIAL_C_ARRIVAL_2 + simTime, EVENT_ARRIVAL_C);
-        eventSchedule(4+simTime, EVENT_ARRIVAL_C);
+        eventSchedule(MATERIAL_C_ARRIVAL_1+MATERIAL_C_ARRIVAL_2 + simTime, EVENT_ARRIVAL_C);
         if(elevator_in_floor_1 && (WEIGHT_MATERIAL_C+weight_in_the_elevator()<=ELEVATOR_CAPACYTI)){
             elevator.add_to_the_end(new Material(3, 50));
             if(weight_in_the_elevator()==ELEVATOR_CAPACYTI){
